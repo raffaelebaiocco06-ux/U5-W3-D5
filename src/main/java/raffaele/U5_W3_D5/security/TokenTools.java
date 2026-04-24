@@ -35,4 +35,9 @@ public class TokenTools {
         }
 
     }
+    public Long extractIdFromToken(String token) {
+        return Long.parseLong(
+                Jwts.parser().verifyWith(Keys.hmacShaKeyFor(secret.getBytes())).build().parseSignedClaims(token).getPayload().getSubject());
+    }
+
 }
