@@ -1,11 +1,11 @@
 package raffaele.U5_W3_D5.controller;
 
-import jakarta.validation.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import raffaele.U5_W3_D5.entities.Utente;
+import raffaele.U5_W3_D5.exeptions.BadRequestExeption;
 import raffaele.U5_W3_D5.payloads.LoginDTO;
 import raffaele.U5_W3_D5.payloads.LoginRespDTO;
 import raffaele.U5_W3_D5.payloads.NewUtenteRespDTO;
@@ -36,7 +36,7 @@ public class AuthController {
 
         if (validationResult.hasErrors()) {
             List<String> errors = validationResult.getFieldErrors().stream().map(error -> error.getDefaultMessage()).toList();
-            throw new ValidationException((Throwable) errors);
+            throw new BadRequestExeption(errors.toString());
         }
 
         Utente utente = this.utenteService.save(body);

@@ -36,7 +36,7 @@ public class Utente implements UserDetails {
     @Column(nullable = false)
     private Ruolo ruolo;
 
-    public Utente(String nome, String cognome, String password, String email, Ruolo ruolo) {
+    public Utente(String nome, String cognome, String email, String password, Ruolo ruolo) {
         this.nome = nome;
         this.cognome = cognome;
         this.password = password;

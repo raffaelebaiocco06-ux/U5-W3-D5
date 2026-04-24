@@ -14,7 +14,7 @@ public record EventoDTO(
         @NotBlank(message = "Il luogo è obbligatorio")
         String luogo,
 
-        @Min(value = 20, message = "I posti devono essere almeno 1")
+        @Min(value = 20, message = "I posti devono essere almeno 20")
         int maxposti,
 
         @NotNull(message = "La data è obbligatoria")
