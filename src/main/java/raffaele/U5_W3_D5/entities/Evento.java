@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+
 @ToString
 public class Evento {
     @Id
@@ -31,4 +31,12 @@ public class Evento {
     @JoinColumn( name="creatore",nullable = false)
     private Utente creatore;
 
+    public Evento(String titolo, String descrizione, String luogo, int maxposti, LocalDate data, Utente creatore) {
+        this.titolo = titolo;
+        this.descrizione = descrizione;
+        this.luogo = luogo;
+        this.maxposti = maxposti;
+        this.data = data;
+        this.creatore = creatore;
+    }
 }

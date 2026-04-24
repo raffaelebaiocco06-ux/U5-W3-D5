@@ -9,12 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long> {
-
-    List<Prenotazione> findByUtenteId(Long utenteId);
-
-    List<Prenotazione> findByEvento(Evento evento);
-
+    List<Prenotazione> findByUtente(Utente utente);
     boolean existsByUtenteAndEvento(Utente utente, Evento evento);
-
     Optional<Prenotazione> findByUtenteAndEvento(Utente utente, Evento evento);
+    int countByEvento(Evento evento);
 }

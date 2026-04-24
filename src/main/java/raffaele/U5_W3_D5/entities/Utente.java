@@ -16,7 +16,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @JsonIgnoreProperties({"accountNonExpired", "accountNonLocked", "authorities", "credentialsNonExpired", "enabled"})
 public class Utente implements UserDetails {
@@ -36,6 +35,14 @@ public class Utente implements UserDetails {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Ruolo ruolo;
+
+    public Utente(String nome, String cognome, String password, String email, Ruolo ruolo) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.password = password;
+        this.email = email;
+        this.ruolo = ruolo;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

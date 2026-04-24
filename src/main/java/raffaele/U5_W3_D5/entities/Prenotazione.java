@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+
 @ToString
 public class Prenotazione {
 
@@ -28,4 +28,10 @@ public class Prenotazione {
 
     @Column(nullable = false)
     private LocalDateTime dataPrenotazione;
+
+    public Prenotazione(Utente utente, Evento evento, LocalDateTime dataPrenotazione) {
+        this.utente = utente;
+        this.evento = evento;
+        this.dataPrenotazione = dataPrenotazione;
+    }
 }
